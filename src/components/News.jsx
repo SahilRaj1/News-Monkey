@@ -65,19 +65,19 @@ export default class News extends Component {
   render() {
     return (
       <>
-        <div className="cotnainer my-3 mx-4" >
+        <div className="cotnainer my-4 mx-4" >
           <h1 style={{ textAlign: "center" }}>News Monkey - Top Headlines</h1>
           {this.state.loading && <Spinner/>}
           <div className='row' style={{ margin: "auto" }}>
             {!(this.state.loading) && this.state.articles.map((element) => {
               return <div className="col-md-4" style={{ margin: "auto", display: "flex", justifyContent: "center" }}>
-                <NewsItems key={element.url} title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} />
+                <NewsItems key={element.url} title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
               </div>
             })}
           </div>
-          <div className="container" style={{ margin: "auto", display: "flex", justifyContent: "center" }}>
-            <button type="button" className="btn btn-dark mx-3 my-2" disabled={this.state.page <= 1} onClick={this.handlePrevClick}>&larr; Previous</button>
-            <button type="button" className="btn btn-dark mx-3 my-2" disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 12)} onClick={this.handleNextClick}>Next &rarr;</button>
+          <div className="container my-5" style={{ margin: "auto", display: "flex", justifyContent: "center" }}>
+            <button type="button" className="btn btn-primary mx-3 my-2" disabled={this.state.page <= 1} onClick={this.handlePrevClick}>&larr; Previous</button>
+            <button type="button" className="btn btn-primary mx-3 my-2" disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / 12)} onClick={this.handleNextClick}>Next &rarr;</button>
           </div>
         </div>
       </>
