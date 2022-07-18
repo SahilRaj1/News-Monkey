@@ -14,9 +14,9 @@ export default class NewsItems extends Component {
                         <p className="card-text">{description}</p>
                         <p className="card-text"><small className="text-primary">By {author ? author : "Unknown"} on {new Date(date).toUTCString()}</small></p>
                         <a href={newsUrl} rel="noreferrer" target="_blank" className="btn btn-primary">Read More</a>
-                        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
+                        <span className="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">
                             {source}
-                            <span class="visually-hidden"></span>
+                            <span className="visually-hidden"></span>
                         </span>
                     </div>
                 </div>
